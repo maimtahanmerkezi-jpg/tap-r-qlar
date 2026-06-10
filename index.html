@@ -12,7 +12,6 @@
   :root {
     --bg: #0c0d14;
     --surface: #13141f;
-    --surface2: #1a1b2a;
     --border: #252636;
     --accent: #6c5ce7;
     --accent-soft: #8b7ff0;
@@ -30,189 +29,81 @@
     background-image: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(108,92,231,0.12) 0%, transparent 70%);
   }
 
-  header {
-    text-align: center;
-    padding: 3rem 1rem 2rem;
-  }
+  header { text-align: center; padding: 3rem 1rem 2rem; }
 
   .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--accent-soft);
-    background: var(--accent-glow);
-    border: 1px solid rgba(108,92,231,0.3);
-    padding: 5px 14px;
-    border-radius: 20px;
-    margin-bottom: 18px;
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent-soft); background: var(--accent-glow);
+    border: 1px solid rgba(108,92,231,0.3); padding: 5px 14px; border-radius: 20px; margin-bottom: 18px;
   }
 
   header h1 {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
-    font-weight: 700;
-    color: #fff;
-    line-height: 1.15;
-    letter-spacing: -0.02em;
+    font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; color: #fff;
+    line-height: 1.15; letter-spacing: -0.02em;
   }
 
   header h1 em {
     font-style: normal;
     background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
   }
 
-  header p {
-    margin-top: 10px;
-    font-size: 15px;
-    color: var(--muted);
-    max-width: 420px;
-    margin-inline: auto;
-    line-height: 1.5;
-  }
+  header p { margin-top: 10px; font-size: 15px; color: var(--muted); max-width: 420px; margin-inline: auto; line-height: 1.5; }
 
-  .container {
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 0 1rem 5rem;
-  }
+  .container { max-width: 700px; margin: 0 auto; padding: 0 1rem 5rem; }
 
-  .subject-scroll {
-    overflow-x: auto;
-    scrollbar-width: none;
-    margin-bottom: 1.25rem;
-    -webkit-overflow-scrolling: touch;
-  }
+  .subject-scroll { overflow-x: auto; scrollbar-width: none; margin-bottom: 1.25rem; }
   .subject-scroll::-webkit-scrollbar { display: none; }
-
-  .subjects {
-    display: flex;
-    gap: 6px;
-    width: max-content;
-    padding: 2px 0;
-  }
+  .subjects { display: flex; gap: 6px; width: max-content; padding: 2px 0; }
 
   .subject-btn {
-    padding: 8px 20px;
-    border-radius: 24px;
-    border: 1px solid var(--border);
-    background: var(--surface);
-    color: var(--muted);
-    font-size: 13px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-    font-family: 'Inter', sans-serif;
+    padding: 8px 20px; border-radius: 24px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--muted); font-size: 13px; font-weight: 500;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap; font-family: 'Inter', sans-serif;
   }
-
   .subject-btn:hover { border-color: var(--accent); color: var(--accent-soft); background: var(--accent-glow); }
+  .subject-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; box-shadow: 0 0 16px rgba(108,92,231,0.35); }
 
-  .subject-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: #fff;
-    font-weight: 600;
-    box-shadow: 0 0 16px rgba(108,92,231,0.35);
-  }
-
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 20px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem; margin-bottom: 1rem; }
 
   .upload-zone {
-    border: 1.5px dashed var(--border);
-    border-radius: 14px;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.2s;
-    margin-bottom: 1rem;
-    background: var(--bg);
-    position: relative;
+    border: 1.5px dashed var(--border); border-radius: 14px; padding: 1.5rem 1rem;
+    text-align: center; cursor: pointer; transition: all 0.2s; margin-bottom: 1rem;
+    background: var(--bg); position: relative;
   }
-
   .upload-zone:hover { border-color: var(--accent); background: var(--accent-glow); }
   .upload-zone.has-image { border-color: var(--accent); border-style: solid; }
-
   .upload-icon { font-size: 2rem; margin-bottom: 6px; line-height: 1; }
   .upload-zone p { font-size: 14px; color: var(--muted); margin-bottom: 3px; }
   .upload-zone span { font-size: 12px; color: var(--dim); }
 
-  #preview-img {
-    max-width: 100%;
-    max-height: 200px;
-    border-radius: 10px;
-    margin-top: 12px;
-    display: none;
-    border: 1px solid var(--border);
-  }
+  #preview-img { max-width: 100%; max-height: 200px; border-radius: 10px; margin-top: 12px; display: none; border: 1px solid var(--border); }
 
   .remove-img {
-    display: none;
-    position: absolute;
-    top: 10px; right: 10px;
-    background: #ff4757;
-    border: none;
-    border-radius: 50%;
-    width: 26px; height: 26px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
+    display: none; position: absolute; top: 10px; right: 10px;
+    background: #ff4757; border: none; border-radius: 50%; width: 26px; height: 26px;
+    color: #fff; font-size: 14px; cursor: pointer; align-items: center; justify-content: center; line-height: 1;
   }
   .remove-img.visible { display: flex; }
 
-  .input-row {
-    display: flex;
-    gap: 8px;
-    align-items: stretch;
-  }
+  .input-row { display: flex; gap: 8px; align-items: stretch; }
 
   .input-row input {
-    flex: 1;
-    padding: 13px 16px;
-    border-radius: 12px;
-    border: 1px solid var(--border);
-    background: var(--bg);
-    color: var(--text);
-    font-size: 14px;
-    font-family: 'Inter', sans-serif;
-    outline: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-    min-width: 0;
+    flex: 1; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif;
+    outline: none; transition: border-color 0.15s, box-shadow 0.15s; min-width: 0;
   }
-
   .input-row input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-glow); }
   .input-row input::placeholder { color: var(--dim); }
 
   .ask-btn {
-    padding: 13px 22px;
-    background: var(--accent);
-    color: #fff;
-    border: none;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    white-space: nowrap;
-    font-family: 'Inter', sans-serif;
+    padding: 13px 22px; background: var(--accent); color: #fff; border: none;
+    border-radius: 12px; font-size: 14px; font-weight: 600; cursor: pointer;
+    transition: all 0.15s; white-space: nowrap; font-family: 'Inter', sans-serif;
     box-shadow: 0 4px 16px rgba(108,92,231,0.35);
   }
-
   .ask-btn:hover { opacity: 0.88; transform: translateY(-1px); }
   .ask-btn:active { transform: scale(0.97); }
   .ask-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
@@ -222,70 +113,31 @@
   .chips { display: flex; flex-wrap: wrap; gap: 6px; }
 
   .chip {
-    font-size: 12px;
-    padding: 5px 13px;
-    border-radius: 12px;
-    background: var(--bg);
-    color: var(--muted);
-    border: 1px solid var(--border);
-    cursor: pointer;
-    transition: all 0.12s;
-    font-family: 'Inter', sans-serif;
+    font-size: 12px; padding: 5px 13px; border-radius: 12px; background: var(--bg);
+    color: var(--muted); border: 1px solid var(--border); cursor: pointer; transition: all 0.12s; font-family: 'Inter', sans-serif;
   }
   .chip:hover { background: var(--accent-glow); color: var(--accent-soft); border-color: var(--accent); }
 
   #conversation { display: flex; flex-direction: column; gap: 12px; }
 
-  .msg {
-    border-radius: 16px;
-    padding: 1rem 1.25rem;
-    font-size: 15px;
-    line-height: 1.75;
-    animation: fadeUp 0.25s ease;
-  }
+  .msg { border-radius: 16px; padding: 1rem 1.25rem; font-size: 15px; line-height: 1.75; animation: fadeUp 0.25s ease; }
 
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
   }
 
-  .msg-user {
-    background: var(--accent-glow);
-    border: 1px solid rgba(108,92,231,0.3);
-    color: var(--text);
-    align-self: flex-end;
-    max-width: 85%;
-  }
-
-  .msg-ai {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: #d4d6ee;
-    align-self: flex-start;
-    width: 100%;
-  }
+  .msg-user { background: var(--accent-glow); border: 1px solid rgba(108,92,231,0.3); color: var(--text); align-self: flex-end; max-width: 85%; }
+  .msg-ai { background: var(--surface); border: 1px solid var(--border); color: #d4d6ee; align-self: flex-start; width: 100%; }
 
   .msg-label { font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 8px; }
   .msg-user .msg-label { color: var(--accent-soft); }
   .msg-ai .msg-label { color: #52b788; }
   .msg-body { white-space: pre-wrap; }
 
-  .loading-msg {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 1rem 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
+  .loading-msg { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 5px; }
 
-  .dot {
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--accent-soft);
-    animation: bounce 1.2s ease-in-out infinite;
-  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent-soft); animation: bounce 1.2s ease-in-out infinite; }
   .dot:nth-child(2) { animation-delay: 0.2s; }
   .dot:nth-child(3) { animation-delay: 0.4s; }
 
@@ -294,27 +146,12 @@
     40% { transform: scale(1); opacity: 1; }
   }
 
-  .msg-error {
-    background: rgba(255,71,87,0.1);
-    border: 1px solid rgba(255,71,87,0.3);
-    color: #ff6b7a;
-    border-radius: 16px;
-    padding: 1rem 1.25rem;
-    font-size: 14px;
-  }
+  .msg-error { background: rgba(255,71,87,0.1); border: 1px solid rgba(255,71,87,0.3); color: #ff6b7a; border-radius: 16px; padding: 1rem 1.25rem; font-size: 14px; }
 
   .clear-btn {
-    display: none;
-    margin: 8px auto 0;
-    padding: 8px 20px;
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    background: transparent;
-    color: var(--muted);
-    font-size: 12px;
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.15s;
+    display: none; margin: 8px auto 0; padding: 8px 20px; border-radius: 10px;
+    border: 1px solid var(--border); background: transparent; color: var(--muted);
+    font-size: 12px; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.15s;
   }
   .clear-btn:hover { border-color: #ff4757; color: #ff4757; }
   .clear-btn.visible { display: block; }
@@ -336,7 +173,6 @@
 </header>
 
 <div class="container">
-
   <div class="subject-scroll">
     <div class="subjects" id="subjects">
       <button class="subject-btn active" onclick="setSubject(this,'Riyaziyyat')">📐 Riyaziyyat</button>
@@ -377,14 +213,10 @@
 
   <div id="conversation"></div>
   <button class="clear-btn" id="clear-btn" onclick="clearChat()">Söhbəti sil</button>
-
 </div>
 
 <script>
-  // =============================================
-  // AÇARINI BURAYA YAP
-  const GEMINI_API_KEY = "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";
-  // =============================================
+  const API_KEY = "REPLACE_KEY_HERE";
 
   let currentSubject = 'Riyaziyyat';
   let uploadedImageBase64 = null;
@@ -449,11 +281,9 @@
 
   function removeImage(e) {
     e.stopPropagation();
-    uploadedImageBase64 = null;
-    uploadedMimeType = null;
+    uploadedImageBase64 = null; uploadedMimeType = null;
     const img = document.getElementById('preview-img');
-    img.src = '';
-    img.style.display = 'none';
+    img.src = ''; img.style.display = 'none';
     document.getElementById('upload-label').textContent = 'Tapşırığın şəklini yüklə';
     document.getElementById('upload-sub').textContent = 'PNG, JPG · klikle və ya sürüklə';
     document.getElementById('upload-icon').textContent = '📷';
@@ -462,9 +292,7 @@
     document.getElementById('file-input').value = '';
   }
 
-  function escHtml(s) {
-    return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
+  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
   function appendUserMsg(text, hasImage) {
     const conv = document.getElementById('conversation');
@@ -478,17 +306,13 @@
   function appendLoading() {
     const conv = document.getElementById('conversation');
     const div = document.createElement('div');
-    div.className = 'loading-msg';
-    div.id = 'loading-indicator';
+    div.className = 'loading-msg'; div.id = 'loading-indicator';
     div.innerHTML = '<div class="dot"></div><div class="dot"></div><div class="dot"></div>';
     conv.appendChild(div);
     div.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
 
-  function removeLoading() {
-    const ld = document.getElementById('loading-indicator');
-    if (ld) ld.remove();
-  }
+  function removeLoading() { const ld = document.getElementById('loading-indicator'); if (ld) ld.remove(); }
 
   function appendAIMsg(text) {
     const conv = document.getElementById('conversation');
@@ -503,8 +327,7 @@
   function appendErrorMsg(text) {
     const conv = document.getElementById('conversation');
     const div = document.createElement('div');
-    div.className = 'msg-error';
-    div.textContent = text;
+    div.className = 'msg-error'; div.textContent = text;
     conv.appendChild(div);
     document.getElementById('clear-btn').classList.add('visible');
   }
@@ -528,48 +351,51 @@
 
     const systemPrompt = `Sən ${currentSubject} fənni üzrə ixtisaslaşmış mehriban Azərbaycan müəllimisən. Azərbaycan dilindəki şagirdlərə Azərbaycan dilində kömək edirsən. Cavablarını aydın, addım-addım, anlaşılan dildə ver. Riyaziyyat üçün hər addımı göstər. İngilis dili üçün qaydaları izah et. Fizika üçün formul və fiziki mənasını açıqla.`;
 
-    // Build parts for Gemini
-    const parts = [];
+    // Build user content
+    const userContent = [];
     if (uploadedImageBase64) {
-      parts.push({ inlineData: { mimeType: uploadedMimeType || 'image/jpeg', data: uploadedImageBase64 } });
+      userContent.push({ type: 'image', source: { type: 'base64', media_type: uploadedMimeType || 'image/jpeg', data: uploadedImageBase64 } });
     }
-    parts.push({ text: q || 'Bu şəkildəki tapşırığı həll et və izah et.' });
+    userContent.push({ type: 'text', text: q || 'Bu şəkildəki tapşırığı həll et və izah et.' });
 
-    // Build Gemini contents with history
-    const contents = [];
-    // Add prior conversation turns
-    for (const turn of conversationHistory) {
-      contents.push({ role: turn.role, parts: [{ text: turn.text }] });
-    }
-    // Add system + current user message
-    contents.push({ role: 'user', parts: [{ text: systemPrompt }, ...parts] });
+    conversationHistory.push({ role: 'user', content: userContent });
 
     try {
-      const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`,
-        {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ contents })
-        }
-      );
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': API_KEY,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5-20251001',
+          max_tokens: 1024,
+          system: systemPrompt,
+          messages: conversationHistory
+        })
+      });
 
       const data = await response.json();
       removeLoading();
 
-      if (data.candidates && data.candidates[0]) {
-        const aiText = data.candidates[0].content.parts[0].text;
-        // Save to history (text only for subsequent turns)
-        conversationHistory.push({ role: 'user', text: q || 'Şəkildəki tapşırığı həll et.' });
-        conversationHistory.push({ role: 'model', text: aiText });
+      if (data.content && data.content[0]) {
+        const aiText = data.content.map(b => b.text || '').join('\n');
+        conversationHistory.push({ role: 'assistant', content: aiText });
         appendAIMsg(aiText);
         if (uploadedImageBase64) removeImage({ stopPropagation: () => {} });
+      } else if (data.error) {
+        conversationHistory.pop();
+        appendErrorMsg('Xəta: ' + data.error.message);
       } else {
-        appendErrorMsg('Cavab alınmadı. API açarını yoxla və yenidən cəhd et.');
+        conversationHistory.pop();
+        appendErrorMsg('Cavab alınmadı. Yenidən cəhd et.');
       }
     } catch (err) {
       removeLoading();
-      appendErrorMsg('Xəta baş verdi: ' + err.message);
+      conversationHistory.pop();
+      appendErrorMsg('Şəbəkə xətası: ' + err.message);
     }
 
     btn.disabled = false;
