@@ -71,13 +71,11 @@
 </style>
 </head>
 <body>
-
 <header>
   <div class="badge">&#10022; AI ile ogren</div>
   <h1>Ev Tapşırığı<br><em>Köməkçisi</em></h1>
   <p>Şəkil yüklə və ya sualını yaz — addım-addım izahat al</p>
 </header>
-
 <div class="container">
   <div class="subject-scroll">
     <div class="subjects">
@@ -89,7 +87,6 @@
       <button class="subject-btn" onclick="setSubject(this,'Biologiya')">&#127807; Biologiya</button>
     </div>
   </div>
-
   <div class="card">
     <div class="upload-zone" id="drop-zone"
       onclick="document.getElementById('file-input').click()"
@@ -103,27 +100,20 @@
       <img id="preview-img" alt="preview" />
     </div>
     <input type="file" id="file-input" accept="image/*" onchange="handleFile(event)" />
-
     <div class="input-row">
-      <input type="text" id="question-input"
-        placeholder="Sualini yaz..."
-        onkeydown="if(event.key==='Enter') askQuestion()" />
+      <input type="text" id="question-input" placeholder="Sualini yaz..." onkeydown="if(event.key==='Enter') askQuestion()" />
       <button class="ask-btn" id="ask-btn" onclick="askQuestion()">Soruş &#10022;</button>
     </div>
-
     <div class="examples">
       <p class="examples-label">Numune suallar</p>
       <div class="chips" id="chips"></div>
     </div>
   </div>
-
   <div id="conversation"></div>
   <button class="clear-btn" id="clear-btn" onclick="clearChat()">Sohbeti sil</button>
 </div>
-
 <script>
-const WORKER_URL = "https://homework-proxy.zulfuqarasdanli743.workers.dev";
-
+  const WORKER_URL = "https://homework-proxy.zulfuqarasdanli743.workers.dev";
   let currentSubject = 'Riyaziyyat';
   let uploadedImageBase64 = null;
   let uploadedMimeType = null;
@@ -262,27 +252,9 @@ const WORKER_URL = "https://homework-proxy.zulfuqarasdanli743.workers.dev";
       userContent.push({ type: 'text', text: q || 'Bu sekildeki tapširigi hell et ve izah et.' });
 
       const response = await fetch(WORKER_URL, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    model: 'gemini',
-    messages: [
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: userContent }
-    ]
-  })
-}); {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + OPENROUTER_API_KEY,
-          'HTTP-Referer': 'https://maimtahanmerkezi-jpg.github.io',
-          'X-Title': 'Homework Helper'
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          model: 'google/gemini-2.0-flash-exp:free',
           messages: [
             { role: 'system', content: systemPrompt },
             { role: 'user', content: userContent }
@@ -297,7 +269,7 @@ const WORKER_URL = "https://homework-proxy.zulfuqarasdanli743.workers.dev";
         appendAIMsg(data.choices[0].message.content);
         if (uploadedImageBase64) removeImage({ stopPropagation: () => {} });
       } else if (data.error) {
-        appendErrorMsg('Xeta: ' + data.error.message);
+        appendErrorMsg('Xeta: ' + JSON.stringify(data.error));
       } else {
         appendErrorMsg('Cavab alinmadi. Yeniden ced et.');
       }
