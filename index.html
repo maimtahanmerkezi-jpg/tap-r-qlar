@@ -73,7 +73,7 @@
 <body>
 
 <header>
-  <div class="badge">✦ AI ilə öyrən</div>
+  <div class="badge">&#10022; AI ile ogren</div>
   <h1>Ev Tapşırığı<br><em>Köməkçisi</em></h1>
   <p>Şəkil yüklə və ya sualını yaz — addım-addım izahat al</p>
 </header>
@@ -81,12 +81,12 @@
 <div class="container">
   <div class="subject-scroll">
     <div class="subjects">
-      <button class="subject-btn active" onclick="setSubject(this,'Riyaziyyat')">📐 Riyaziyyat</button>
-      <button class="subject-btn" onclick="setSubject(this,'İngilis dili')">🔤 İngilis dili</button>
-      <button class="subject-btn" onclick="setSubject(this,'Fizika')">⚛️ Fizika</button>
-      <button class="subject-btn" onclick="setSubject(this,'Kimya')">🧪 Kimya</button>
-      <button class="subject-btn" onclick="setSubject(this,'Tarix')">📖 Tarix</button>
-      <button class="subject-btn" onclick="setSubject(this,'Biologiya')">🌿 Biologiya</button>
+      <button class="subject-btn active" onclick="setSubject(this,'Riyaziyyat')">&#128208; Riyaziyyat</button>
+      <button class="subject-btn" onclick="setSubject(this,'Ingilis dili')">&#128292; İngilis dili</button>
+      <button class="subject-btn" onclick="setSubject(this,'Fizika')">&#9883; Fizika</button>
+      <button class="subject-btn" onclick="setSubject(this,'Kimya')">&#129514; Kimya</button>
+      <button class="subject-btn" onclick="setSubject(this,'Tarix')">&#128214; Tarix</button>
+      <button class="subject-btn" onclick="setSubject(this,'Biologiya')">&#127807; Biologiya</button>
     </div>
   </div>
 
@@ -96,29 +96,29 @@
       ondragover="handleDragOver(event)"
       ondragleave="handleDragLeave(event)"
       ondrop="handleDrop(event)">
-      <button class="remove-img" id="remove-btn" onclick="removeImage(event)">✕</button>
-      <div class="upload-icon" id="upload-icon">📷</div>
+      <button class="remove-img" id="remove-btn" onclick="removeImage(event)">&#x2715;</button>
+      <div class="upload-icon" id="upload-icon">&#128247;</div>
       <p id="upload-label">Tapşırığın şəklini yüklə</p>
       <span id="upload-sub">PNG, JPG · klikle və ya sürüklə</span>
-      <img id="preview-img" alt="Yüklənmiş tapşırıq" />
+      <img id="preview-img" alt="preview" />
     </div>
     <input type="file" id="file-input" accept="image/*" onchange="handleFile(event)" />
 
     <div class="input-row">
       <input type="text" id="question-input"
-        placeholder="Sualını yaz… məs: Bu tənliyi həll et"
+        placeholder="Sualini yaz..."
         onkeydown="if(event.key==='Enter') askQuestion()" />
-      <button class="ask-btn" id="ask-btn" onclick="askQuestion()">Soruş ✦</button>
+      <button class="ask-btn" id="ask-btn" onclick="askQuestion()">Soruş &#10022;</button>
     </div>
 
     <div class="examples">
-      <p class="examples-label">Nümunə suallar</p>
+      <p class="examples-label">Numune suallar</p>
       <div class="chips" id="chips"></div>
     </div>
   </div>
 
   <div id="conversation"></div>
-  <button class="clear-btn" id="clear-btn" onclick="clearChat()">Söhbəti sil</button>
+  <button class="clear-btn" id="clear-btn" onclick="clearChat()">Sohbeti sil</button>
 </div>
 
 <script>
@@ -129,12 +129,12 @@
   let uploadedMimeType = null;
 
   const examples = {
-    'Riyaziyyat': ['2x + 5 = 13, x = ?', 'Üçbucağın sahəsi', '√144 = ?', '3/4 + 1/2 = ?'],
-    'İngilis dili': ['Present Perfect nədir?', '"Despite" vs "Although"', 'Irregular verbs siyahısı', 'Passive voice izah et'],
-    'Fizika': ['Nyutonun 2-ci qanunu', 'V = I × R nədir?', 'Kinetik enerji formulu', 'Işığın sürəti'],
-    'Kimya': ['pH nədir?', 'Oksidləşmə nədir?', 'H₂O molekulu', 'Atom nüvəsi'],
-    'Tarix': ['WWI nə vaxt başladı?', 'İpək Yolu nədir?', 'Azərbaycan müstəqilliyi', 'Osmanlı imperiyası'],
-    'Biologiya': ['Fotosintez nədir?', 'DNT nədir?', 'Hüceyrə quruluşu', 'Meioz və mitoz']
+    'Riyaziyyat': ['2x + 5 = 13, x = ?', 'Ucbucagin sahesi', 'Kok144 = ?', '3/4 + 1/2 = ?'],
+    'Ingilis dili': ['Present Perfect nedirr?', 'Despite vs Although', 'Irregular verbs', 'Passive voice'],
+    'Fizika': ['Nyutonun 2-ci qanunu', 'V = I x R nedirr?', 'Kinetik enerji formulu', 'Isiqin sureti'],
+    'Kimya': ['pH nedirr?', 'Oksidlesme nedirr?', 'H2O molekulu', 'Atom nuvesi'],
+    'Tarix': ['WWI ne vaxt basladi?', 'Ipek Yolu nedirr?', 'Azerbaycan mustagillliyi', 'Osmanli imperiyasi'],
+    'Biologiya': ['Fotosintez nedirr?', 'DNT nedirr?', 'Huceyre qurulusu', 'Meioz ve mitoz']
   };
 
   function setSubject(btn, subject) {
@@ -142,7 +142,6 @@
     btn.classList.add('active');
     currentSubject = subject;
     renderChips();
-    document.getElementById('question-input').placeholder = `${subject} sualını yaz…`;
   }
 
   function renderChips() {
@@ -175,9 +174,9 @@
       const img = document.getElementById('preview-img');
       img.src = ev.target.result;
       img.style.display = 'block';
-      document.getElementById('upload-label').textContent = '✓ Şəkil yükləndi';
+      document.getElementById('upload-label').textContent = 'Sekil yuklendi';
       document.getElementById('upload-sub').textContent = file.name;
-      document.getElementById('upload-icon').textContent = '✅';
+      document.getElementById('upload-icon').textContent = '\u2705';
       document.getElementById('drop-zone').classList.add('has-image');
       document.getElementById('remove-btn').classList.add('visible');
     };
@@ -190,8 +189,8 @@
     const img = document.getElementById('preview-img');
     img.src = ''; img.style.display = 'none';
     document.getElementById('upload-label').textContent = 'Tapşırığın şəklini yüklə';
-    document.getElementById('upload-sub').textContent = 'PNG, JPG · klikle və ya sürüklə';
-    document.getElementById('upload-icon').textContent = '📷';
+    document.getElementById('upload-sub').textContent = 'PNG, JPG · klikle və ya surukle';
+    document.getElementById('upload-icon').textContent = '\uD83D\uDCF7';
     document.getElementById('drop-zone').classList.remove('has-image');
     document.getElementById('remove-btn').classList.remove('visible');
     document.getElementById('file-input').value = '';
@@ -203,7 +202,7 @@
     const conv = document.getElementById('conversation');
     const div = document.createElement('div');
     div.className = 'msg msg-user';
-    div.innerHTML = `<div class="msg-label">Sən</div><div class="msg-body">${escHtml(text || (hasImage ? '📷 Şəkildəki tapşırığı həll et' : ''))}</div>`;
+    div.innerHTML = '<div class="msg-label">Sen</div><div class="msg-body">' + escHtml(text || (hasImage ? 'Sekildeki tapširigi hell et' : '')) + '</div>';
     conv.appendChild(div);
     div.scrollIntoView({ behavior: 'smooth', block: 'end' });
   }
@@ -223,7 +222,7 @@
     const conv = document.getElementById('conversation');
     const div = document.createElement('div');
     div.className = 'msg msg-ai';
-    div.innerHTML = `<div class="msg-label">✦ AI Köməkçi</div><div class="msg-body">${escHtml(text)}</div>`;
+    div.innerHTML = '<div class="msg-label">AI Komekci</div><div class="msg-body">' + escHtml(text) + '</div>';
     conv.appendChild(div);
     div.scrollIntoView({ behavior: 'smooth', block: 'end' });
     document.getElementById('clear-btn').classList.add('visible');
@@ -253,23 +252,22 @@
     appendUserMsg(q, !!uploadedImageBase64);
     appendLoading();
 
-    const systemPrompt = `Sən ${currentSubject} fənni üzrə ixtisaslaşmış mehriban Azərbaycan müəllimisən. Azərbaycan dilindəki şagirdlərə Azərbaycan dilində kömək edirsən. Cavablarını aydın, addım-addım, anlaşılan dildə ver. Riyaziyyat üçün hər addımı göstər. İngilis dili üçün qaydaları izah et. Fizika üçün formul və fiziki mənasını açıqla.`;
+    const systemPrompt = 'Sen ' + currentSubject + ' fenni uzre ixtiaslasmis mehriban Azerbaycan muellimisen. Azerbaycan dilindeki sagirdlere Azerbaycan dilinde komek edirsem. Cavablarini aydin, addim-addim, anlasilan dilde ver.';
 
     try {
       const userContent = [];
-
       if (uploadedImageBase64) {
-        userContent.push({ type: 'image_url', image_url: { url: `data:${uploadedMimeType || 'image/jpeg'};base64,${uploadedImageBase64}` } });
+        userContent.push({ type: 'image_url', image_url: { url: 'data:' + (uploadedMimeType || 'image/jpeg') + ';base64,' + uploadedImageBase64 } });
       }
-      userContent.push({ type: 'text', text: q || 'Bu şəkildəki tapşırığı həll et və izah et.' });
+      userContent.push({ type: 'text', text: q || 'Bu sekildeki tapširigi hell et ve izah et.' });
 
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${OPENROUTER_API_KEY}`,
-          'HTTP-Referer': window.location.href,
-          'X-Title': 'Ev Tapşırığı Köməkçisi'
+          'Authorization': 'Bearer ' + OPENROUTER_API_KEY,
+          'HTTP-Referer': 'https://maimtahanmerkezi-jpg.github.io',
+          'X-Title': 'Homework Helper'
         },
         body: JSON.stringify({
           model: 'google/gemini-2.0-flash-exp:free',
@@ -284,17 +282,16 @@
       removeLoading();
 
       if (data.choices && data.choices[0]) {
-        const aiText = data.choices[0].message.content;
-        appendAIMsg(aiText);
+        appendAIMsg(data.choices[0].message.content);
         if (uploadedImageBase64) removeImage({ stopPropagation: () => {} });
       } else if (data.error) {
-        appendErrorMsg('Xəta: ' + data.error.message);
+        appendErrorMsg('Xeta: ' + data.error.message);
       } else {
-        appendErrorMsg('Cavab alınmadı. Yenidən cəhd et.');
+        appendErrorMsg('Cavab alinmadi. Yeniden ced et.');
       }
     } catch (err) {
       removeLoading();
-      appendErrorMsg('Şəbəkə xətası: ' + err.message);
+      appendErrorMsg('Xeta: ' + err.message);
     }
 
     btn.disabled = false;
