@@ -261,7 +261,19 @@ const WORKER_URL = "https://homework-proxy.zulfuqarasdanli743.workers.dev";
       }
       userContent.push({ type: 'text', text: q || 'Bu sekildeki tapširigi hell et ve izah et.' });
 
-      const response = await fetch('const response = await fetch(WORKER_URL, {', {
+      const response = await fetch(WORKER_URL, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    model: 'gemini',
+    messages: [
+      { role: 'system', content: systemPrompt },
+      { role: 'user', content: userContent }
+    ]
+  })
+}); {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
